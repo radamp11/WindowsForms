@@ -37,7 +37,7 @@ namespace Projekt1
             InitializeComponent();
             if(vehicle != null)
             {
-                brandLabel.Text = vehicle.brand;
+                brand.Text = vehicle.brand;
                 maxSpeed.Text = vehicle.maxSpeed.ToString();
                 productionDatePicker.Value = vehicle.prodDate;
                 vehicleTypeControl2.vehicleType = vehicle.vehicleType;

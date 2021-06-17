@@ -50,9 +50,11 @@ namespace Projekt1
             this.ColumnHeaderMaxSpeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderProdDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.CountVehicles = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -75,7 +77,7 @@ namespace Projekt1
             this.ToolStripMenuItemEdit,
             this.ToolStripMenuItemDelete});
             this.edycjaToolStripMenuItem.Name = "edycjaToolStripMenuItem";
-            this.edycjaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.edycjaToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.edycjaToolStripMenuItem.Text = "Edit";
             // 
             // ToolStripMenuItemAdd
@@ -106,7 +108,7 @@ namespace Projekt1
             this.toolStripComboBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(407, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(407, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;
@@ -115,7 +117,7 @@ namespace Projekt1
             // 
             this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAdd.Name = "toolStripButtonAdd";
-            this.toolStripButtonAdd.Size = new System.Drawing.Size(42, 39);
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(33, 22);
             this.toolStripButtonAdd.Text = "Add";
             this.toolStripButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
@@ -124,7 +126,7 @@ namespace Projekt1
             // 
             this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(44, 39);
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(31, 22);
             this.toolStripButtonEdit.Text = "Edit";
             this.toolStripButtonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
@@ -133,7 +135,7 @@ namespace Projekt1
             // 
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(38, 39);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(44, 22);
             this.toolStripButtonDelete.Text = "Delete";
             this.toolStripButtonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
@@ -145,7 +147,7 @@ namespace Projekt1
             "Max speed < 100",
             "Max speed >= 100"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(114, 42);
+            this.toolStripComboBox1.Size = new System.Drawing.Size(114, 25);
             this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.Filter_change);
             // 
             // contextMenuStrip1
@@ -195,7 +197,7 @@ namespace Projekt1
             this.VehiclesListView.TabIndex = 3;
             this.VehiclesListView.UseCompatibleStateImageBehavior = false;
             this.VehiclesListView.View = System.Windows.Forms.View.Details;
-            this.VehiclesListView.SelectedIndexChanged += new System.EventHandler(this.FiguresForm_SelectedIndexChanged);
+            this.VehiclesListView.SelectedIndexChanged += new System.EventHandler(this.VehiclesForm_SelectedIndexChanged);
             // 
             // ColumnHeaderType
             // 
@@ -221,12 +223,19 @@ namespace Projekt1
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CountVehicles});
             this.statusStrip1.Location = new System.Drawing.Point(0, 244);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
             this.statusStrip1.Size = new System.Drawing.Size(407, 22);
             this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // CountVehicles
+            // 
+            this.CountVehicles.Name = "CountVehicles";
+            this.CountVehicles.Size = new System.Drawing.Size(39, 17);
+            this.CountVehicles.Text = "Ready";
             // 
             // VehiclesListForm
             // 
@@ -241,14 +250,16 @@ namespace Projekt1
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VehiclesListForm";
             this.Text = "VehiclesListForm";
-            this.Activated += new System.EventHandler(this.FiguresForm_Activated);
-            this.Deactivate += new System.EventHandler(this.FiguresForm_Deactivated);
-            this.Load += new System.EventHandler(this.FigutesForm_Load);
+            this.Activated += new System.EventHandler(this.VehiclesForm_Activated);
+            this.Deactivate += new System.EventHandler(this.VehiclesForm_Deactivated);
+            this.Load += new System.EventHandler(this.VehiclesForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +287,6 @@ namespace Projekt1
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemEdit;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemDelete;
+        private System.Windows.Forms.ToolStripStatusLabel CountVehicles;
     }
 }

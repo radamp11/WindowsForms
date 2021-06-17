@@ -33,7 +33,7 @@ namespace Projekt1
             }
         }
 
-        private void FigutesForm_Load(object sender, EventArgs e)
+        private void VehiclesForm_Load(object sender, EventArgs e)
         {
             toolStripComboBox1.SelectedIndex = 0;
             UpdateItems();
@@ -85,6 +85,7 @@ namespace Projekt1
                     return;
                 }
             }
+            Document_AddVehicleEvent(obj);
         }
 
         private bool isVehicleVisible(Vehicle vehicle)
@@ -121,13 +122,13 @@ namespace Projekt1
 
         private void UpdateVehicleCount()
         {
-            statusStrip1.Text = VehiclesListView.Items.Count.ToString();
+            CountVehicles.Text = VehiclesListView.Items.Count.ToString();
         }
 
         private void UpdateItem(ListViewItem item)
         {
             Vehicle vehicle = (Vehicle)item.Tag;
-            while (item.SubItems.Count < 6)
+            while (item.SubItems.Count < 4)
                 item.SubItems.Add(new ListViewItem.ListViewSubItem());
             item.SubItems[0].Text = vehicle.vehicleType.ToString();
             item.SubItems[1].Text = vehicle.brand.ToString();
@@ -151,19 +152,17 @@ namespace Projekt1
             UpdateVehicleCount();
         }
 
-        private void FiguresForm_Activated(object sender, EventArgs e)
+        private void VehiclesForm_Activated(object sender, EventArgs e)
         {
             ToolStripManager.Merge(toolStrip1, ((MainForm)MdiParent).toolStrip1);
-            ToolStripManager.Merge(statusStrip1, ((MainForm)MdiParent).statusStrip1);
         }
 
-        private void FiguresForm_Deactivated(object sender, EventArgs e)
+        private void VehiclesForm_Deactivated(object sender, EventArgs e)
         {
             ToolStripManager.RevertMerge(((MainForm)MdiParent).toolStrip1, toolStrip1);
-            ToolStripManager.RevertMerge(((MainForm)MdiParent).statusStrip1, statusStrip1);
         }
 
-        private void FiguresForm_SelectedIndexChanged(object sender, EventArgs e)
+        private void VehiclesForm_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateCommandAvailability();
         }
@@ -199,24 +198,16 @@ namespace Projekt1
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in VehiclesListView.SelectedItems)
+            ListViewItem item = VehiclesListView.SelectedItems[0];
+            Vehicle vehicle = (Vehicle)item.Tag;
+            AddVehicleForm vehicleForm = new AddVehicleForm(vehicle);
+            if (vehicleForm.ShowDialog() == DialogResult.OK)
             {
-                foreach (Vehicle vehicle in Document.vehicles)
-                {
-                    if (ReferenceEquals(item.Tag, vehicle))
-                    {
-                        AddVehicleForm vehicleForm = new AddVehicleForm(vehicle);
-                        if (vehicleForm.ShowDialog() == DialogResult.OK)
-                        {
-                            vehicle.brand = vehicleForm.VehicleBrand;
-                            vehicle.maxSpeed = vehicleForm.MaxSpeed;
-                            vehicle.prodDate = vehicleForm.ProductionDate;
-                            vehicle.vehicleType = vehicleForm.Type;
-                            Document.UpdateVehicle(vehicle);
-                        }
-                    }
-                }
-
+                vehicle.brand = vehicleForm.VehicleBrand;
+                vehicle.maxSpeed = vehicleForm.MaxSpeed;
+                vehicle.prodDate = vehicleForm.ProductionDate;
+                vehicle.vehicleType = vehicleForm.Type;
+                Document.UpdateVehicle(vehicle);
             }
         }
 

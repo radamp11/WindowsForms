@@ -32,9 +32,9 @@ namespace Projekt1
 
             private void toolStripButton1_Click(object sender, EventArgs e)
             {
-                VehiclesListForm figuresForm = new VehiclesListForm(document);
-                figuresForm.MdiParent = this;
-                figuresForm.Show();
+                VehiclesListForm vehiclesForm = new VehiclesListForm(document);
+                vehiclesForm.MdiParent = this;
+                vehiclesForm.Show();
             }
 
             private void toolStripButton2_Click(object sender, EventArgs e)

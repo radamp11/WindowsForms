@@ -39,9 +39,9 @@ namespace Projekt1
             this.productionDatePicker = new System.Windows.Forms.DateTimePicker();
             this.typeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.vehicleTypeControl2 = new Projekt1.VehicleTypeControl();
             this.errorProviderSpeed = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderBrand = new System.Windows.Forms.ErrorProvider(this.components);
-            this.vehicleTypeControl2 = new Projekt1.VehicleTypeControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBrand)).BeginInit();
@@ -83,7 +83,7 @@ namespace Projekt1
             this.brand.Location = new System.Drawing.Point(76, 2);
             this.brand.Margin = new System.Windows.Forms.Padding(2);
             this.brand.Name = "brand";
-            this.brand.Size = new System.Drawing.Size(214, 20);
+            this.brand.Size = new System.Drawing.Size(211, 20);
             this.brand.TabIndex = 3;
             this.brand.Validating += new System.ComponentModel.CancelEventHandler(this.brand_validating);
             // 
@@ -92,7 +92,7 @@ namespace Projekt1
             this.maxSpeed.Location = new System.Drawing.Point(76, 57);
             this.maxSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.maxSpeed.Name = "maxSpeed";
-            this.maxSpeed.Size = new System.Drawing.Size(214, 20);
+            this.maxSpeed.Size = new System.Drawing.Size(211, 20);
             this.maxSpeed.TabIndex = 4;
             this.maxSpeed.Validating += new System.ComponentModel.CancelEventHandler(this.speed_validating);
             // 
@@ -110,7 +110,7 @@ namespace Projekt1
             // 
             this.productionDatePicker.Location = new System.Drawing.Point(77, 116);
             this.productionDatePicker.Name = "productionDatePicker";
-            this.productionDatePicker.Size = new System.Drawing.Size(210, 20);
+            this.productionDatePicker.Size = new System.Drawing.Size(209, 20);
             this.productionDatePicker.TabIndex = 12;
             // 
             // typeLabel
@@ -127,7 +127,7 @@ namespace Projekt1
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.53192F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.46809F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.Controls.Add(this.brandLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.vehicleTypeControl2, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.typeLabel, 0, 3);
@@ -148,14 +148,6 @@ namespace Projekt1
             this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 298);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
-            // errorProviderSpeed
-            // 
-            this.errorProviderSpeed.ContainerControl = this;
-            // 
-            // errorProviderBrand
-            // 
-            this.errorProviderBrand.ContainerControl = this;
-            // 
             // vehicleTypeControl2
             // 
             this.vehicleTypeControl2.Location = new System.Drawing.Point(76, 175);
@@ -164,6 +156,14 @@ namespace Projekt1
             this.vehicleTypeControl2.Size = new System.Drawing.Size(75, 81);
             this.vehicleTypeControl2.TabIndex = 13;
             this.vehicleTypeControl2.vehicleType = Projekt1.VehicleType.Car;
+            // 
+            // errorProviderSpeed
+            // 
+            this.errorProviderSpeed.ContainerControl = this;
+            // 
+            // errorProviderBrand
+            // 
+            this.errorProviderBrand.ContainerControl = this;
             // 
             // AddVehicleForm
             // 
